@@ -1,4 +1,4 @@
-# hello-terraform-docker
+# Hello Terraform Docker
 
 * Create a Docker image of 2048 game <br />
 * Create a Amazon EC2 instance with Terraform <br />
