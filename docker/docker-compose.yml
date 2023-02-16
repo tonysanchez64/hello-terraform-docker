@@ -1,0 +1,8 @@
+version: '3'
+services:
+  nginx2048:
+    build: .
+    image: ghcr.io/tonysanchez64/hello-terraform-docker/hello-terraform-docker:latest
+    ports:
+      - "80:80"
+
