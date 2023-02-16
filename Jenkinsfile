@@ -37,9 +37,8 @@ pipeline {
         stage('ansible') {
               steps{
                     withAWS(credentials: 'credenciales-aws', region: 'eu-west-1') {
-                         sshagent(['ssh-amazon']) {
-                              ansiblePlaybook credentialsId: 'ssh-amazon', inventory: './ansible/aws_ec2.yml', playbook: './ansible/ec2.yml'
-                         }
+                              ansiblePlaybook(credentialsId: 'ssh-amazon', inventory: './ansible/aws_ec2.yml', playbook: './ansible/ec2.yml')
+                         
                     }
 
                 }
