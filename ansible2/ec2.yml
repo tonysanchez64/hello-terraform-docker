@@ -16,10 +16,10 @@
     ansible_user: ec2-user
   tasks:
 
-    - name: Install Docker
-      yum:
-       name: docker
-       state: latest
+  - name: Install Docker
+    yum:
+      name: docker
+      state: latest
 
   - name: Start Docker
     service:
