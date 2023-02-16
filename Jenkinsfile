@@ -20,6 +20,7 @@ pipeline {
                     sh 'echo $CR_PAT | docker login ghcr.io -u tonysanchez64 --password-stdin'
                 }
                 sh 'docker push ghcr.io/tonysanchez64/hello-terraform-docker/hello-terraform-docker:1.0.${BUILD_NUMBER}'
+                sh 'docker push ghcr.io/tonysanchez64/hello-terraform-docker/hello-terraform-docker:latest'
             }
         }
         
