@@ -15,6 +15,25 @@
   vars:
     ansible_user: ec2-user
   tasks:
+
+    - name: Install Docker
+    yum:
+      name: docker
+      state: latest
+  - name: Start Docker
+    service:
+      name: docker
+      state: started
+      enabled: yes
+  - name: Modify User
+    user:
+      name: ec2-user
+      groups: docker
+      append: yes
+  - name: Install docker-compose
+    pip:
+      name: docker-compose>1.7.0,<2.0.0
+      executable: pip3
     
     - name: clone docker-compose
       copy:
