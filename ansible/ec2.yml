@@ -40,7 +40,7 @@
     
   - name: clone docker-compose
     copy:
-       src: ../docker-compose.yml
+       src: ../docker/docker-compose.yml
        dest: /home/ec2-user/
        owner: ec2-user
        group: ec2-user
