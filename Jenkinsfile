@@ -14,11 +14,14 @@ pipeline {
         }
         stage('ansible') {
               steps{
-                 withAWS(credentials: 'credenciales-aws', region: 'eu-west-1') {
-                   sshagent(['ssh-amazon']) {
-                        sh 'ansible-playbook -i ./ansible2/aws_ec2.yml ./ansible2/ec2.yml'
-                   }
-                 }
+                    withAWS(credentials: 'credenciales-aws', region: 'eu-west-1') {
+                         sshagent(['ssh-amazon']) {
+                             dir('./ansible2') {
+                                 sh 'ansible-playbook -i aws_ec2.yml ec2.yml'
+                             }
+                         }
+                    }
+
                 }
              }
         }
