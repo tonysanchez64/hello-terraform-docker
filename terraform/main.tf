@@ -30,8 +30,8 @@ resource "aws_instance" "app_server" {
     Name = var.instance_name
     APP  = "vue2048"
   }
-
   user_data = file("../cloudinit.sh")
+
 
 }
 

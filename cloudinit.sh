@@ -4,6 +4,7 @@ service docker start
 systemctl enable docker
 usermod -a -G docker ec2-user
 pip3 install docker-compose
+pip3 install docker-py
 
 
 
