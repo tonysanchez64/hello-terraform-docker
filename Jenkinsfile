@@ -38,7 +38,9 @@ pipeline {
               steps{
                     withAWS(credentials: 'credenciales-aws', region: 'eu-west-1') {
                              dir('./ansible') {
-                                   ansiblePlaybook(credentialsId: 'ssh-amazon', inventory: 'aws_ec2.yml', playbook: 'ec2.yml')
+                                      withCredentials([string(credentialsId: 'Token_Github', variable:'CR_PAT')]) {
+                                              ansiblePlaybook(credentialsId: 'ssh-amazon', inventory: 'aws_ec2.yml', playbook: 'ec2.yml')
+                                      }
                              }
                     }
 
